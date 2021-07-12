@@ -1,6 +1,3 @@
-# Github installation
-# install.packages("devtools")
-# devtools::install_github("rodazuero/gmapsdistance")
 
 # Clear R Environment
 rm(list = ls())
