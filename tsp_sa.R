@@ -14,7 +14,7 @@ addresses_sa <- addresses[order(addresses$label), ]
 # Calculate the distances through Google's API
 distances_sa <- gmapsdistance(origin = addresses_sa$address,
                               destination = addresses_sa$address,
-                                           key = ("AIzaSyARvA3bkTm5VkFbNgxbdNh5p6FgIkBuVjc"),
+                                           key = (""),
                                            combinations = "all",
                                            mode = "driving")$Distance
 
