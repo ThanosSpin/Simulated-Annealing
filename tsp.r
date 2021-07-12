@@ -72,8 +72,8 @@ library(googleway)
 # GEOCODE -------------------------------------------------------------------------------------------------------------
 
 #Setting the API key:
-set.api.key("AIzaSyARvA3bkTm5VkFbNgxbdNh5p6FgIkBuVjc")
-set_key("AIzaSyARvA3bkTm5VkFbNgxbdNh5p6FgIkBuVjc")
+set.api.key("")
+set_key("")
 
 # Empty vector
 reply <- c()
@@ -81,7 +81,7 @@ reply <- c()
 # Functio for getting addresses from Google's API
 geocode_df <- function(address) {
 for (i in 1:length(address)) {
-    reply <- c(reply, google_geocode(address[i], key = "AIzaSyARvA3bkTm5VkFbNgxbdNh5p6FgIkBuVjc"))
+    reply <- c(reply, google_geocode(address[i], key = ""))
 }
 reply
 }
@@ -115,24 +115,12 @@ for (i in 1:24) {addresses$label[26 + i] <-  paste("A", addresses$label[i], sep 
 # Get the distances using the Google Maps API. However, for production purposes this would be done with a local OSRM
 # instance.
 
-# library("gmapsdistance")
-# 
-# set.api.key("AIzaSyARvA3bkTm5VkFbNgxbdNh5p6FgIkBuVjc")
-# 
-# dataframe <- data.frame("API" = c("50.9417965+10.6668388"))
-# 
-# distances_driving <-gmapsdistance(origin = "Vizantinon+Aftokratoron+13,+Nea+Ionia,+Greece", destination = "Leof.+Kifisias+39,+Marousi+151+23", mode = "driving")
-# distances_driving
-# 
-# gmapsdistance(origin = "Washington+DC", 
-#               destination = "New+York+City+NY", 
-#               mode = "driving")
 
 addresses$address <- gsub(" ", "+", addresses$address)
  
 distances <- gmapsdistance(origin = addresses$address,
                            destination = addresses$address,
-                           key = ("AIzaSyARvA3bkTm5VkFbNgxbdNh5p6FgIkBuVjc"),
+                           key = ("pass"),
                            combinations = "all",
                            mode = "driving")$Distance[, -1]
 
