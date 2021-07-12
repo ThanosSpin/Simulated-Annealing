@@ -124,12 +124,11 @@ distances <- gmapsdistance(origin = addresses$address,
 # Scale to km.
 distances <- as.matrix(distances) / 1000
 
+# Change column and row names
 colnames(distances) <- addresses$label
-# colnames(distances)[27:30] <- c("AA", "AB", "AC", "AD")
-#[which(addresses$label %in% c("A", "B", "C", "D", "E"))]
+
 rownames(distances) <- addresses$label
-# rownames(distances)[27:30] <- c("AA", "AB", "AC", "AD")
-#[which(addresses$label %in% c("A", "B", "C", "D" , "E"))]
+
 
 # Convert to distance matrix.
 distances <- as.dist(distances)
